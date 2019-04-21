@@ -12,104 +12,29 @@
  * limitations under the License.
  */
 
-//////Member Access
-
 //Members to have access only to their own account
 rule MemberAccessOwnRecord {
-    description: "Allow Member to access only their profile"
-    participant(p): "org.pikachu2.biznet.Member"
+    description: "Allow user to access only their profile"
+    participant(p): "org.example.basic.Sampleuser"
     operation: ALL
-    resource(r): "org.pikachu2.biznet.Member"
+    resource(r): "org.example.basic.Sampleuser"
     condition: (r.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }
-
 //Members Not to have access to other member accounts
 rule MemberAccessMembers {
     description: "Deny Member access to other Member accounts"
-    participant: "org.pikachu2.biznet.Member"
+    participant: "org.example.basic.Sampleuser"
     operation: ALL
-    resource: "org.pikachu2.biznet.Member"
+    resource: "org.example.basic.Sampleuser"
     action: DENY
 }
-
 //Members have access to Companys on the network
 rule MemberAccessCompanys {
     description: "Allow Member access to all Companys on the network"
-    participant: "org.pikachu2.biznet.Member"
+    participant: "org.example.basic.Sampleuser"
     operation: ALL
-    resource: "org.pikachu2.biznet.Company"
-    action: ALLOW
-}
-
-//Members to have access only to userEarnPoints transaction where they are the member
-rule MemberAccessuserEarnPoints {
-    description: "Allow Member access only to userEarnPoints transaction where they are the member"
-    participant(p): "org.pikachu2.biznet.Member"
-    operation: ALL
-    resource(r): "org.pikachu2.biznet.userEarnPoints"
-    condition: (r.member.getIdentifier() === p.getIdentifier())
-    action: ALLOW
-}
-
-//Members to have access only to userUsePoints transaction where they are the member
-rule MemberAccessuserUsePoints {
-    description: "Allow Member access only to userUsePoints transaction where they are the member"
-    participant(p): "org.pikachu2.biznet.Member"
-    operation: ALL
-    resource(r): "org.pikachu2.biznet.userUsePoints"
-    condition: (r.member.getIdentifier() === p.getIdentifier())
-    action: ALLOW
-}
-
-
-//////Company Access
-
-//Companys to have access only to their own account
-rule CompanyAccessOwnRecord {
-    description: "Allow Company to access only their profile"
-    participant(p): "org.pikachu2.biznet.Company"
-    operation: ALL
-    resource(r): "org.pikachu2.biznet.Company"
-    condition: (r.getIdentifier() === p.getIdentifier())
-    action: ALLOW
-}
-
-//Companys Not to have access to other Company accounts
-rule CompanyAccessCompany {
-    description: "Deny Company access to other Company accounts"
-    participant: "org.pikachu2.biznet.Company"
-    operation: ALL
-    resource: "org.pikachu2.biznet.Company"
-    action: DENY
-}
-
-//Companys Not to have access to Members on the network
-rule CompanyAccessMember {
-    description: "Deny Company access to Members on the network"
-    participant: "org.pikachu2.biznet.Company"
-    operation: ALL
-    resource: "org.pikachu2.biznet.Member"
-    action: DENY
-}
-
-//Companys to have read access to userEarnPoints transaction where they are the Company
-rule CompanyAccessuserEarnPoints {
-    description: "Allow Companys read only access to userEarnPoints transaction where they are the Company"
-    participant(p): "org.pikachu2.biznet.Company"
-    operation: READ
-    resource(r): "org.pikachu2.biznet.userEarnPoints"
-    condition: (r.company.getIdentifier() === p.getIdentifier())
-    action: ALLOW
-}
-
-//Companys to have read access to userUsePoints transaction where they are the Company
-rule CompanyAccessuserUsePoints {
-    description: "Allow Companys read only access to userUsePoints transaction where they are the Company"
-    participant(p): "org.pikachu2.biznet.Company"
-    operation: READ
-    resource(r): "org.pikachu2.biznet.userUsePoints"
-    condition: (r.company.getIdentifier() === p.getIdentifier())
+    resource:"org.example.basic.Samplecompany"
     action: ALLOW
 }
 
