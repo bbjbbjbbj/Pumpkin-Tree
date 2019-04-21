@@ -3,7 +3,7 @@ const BusinessNetworkConnection = require('composer-client').BusinessNetworkConn
 const { BusinessNetworkDefinition, CertificateUtil, IdCard } = require('composer-common');
 
 //declate namespace
-const namespace = 'org.example.basic';
+const namespace = 'org.pikachu2.biznet';
 
 //in-memory card store for testing so cards are not persisted to the file system
 const cardStore = require('composer-common').NetworkCardStoreManager.getCardStore( { type: 'composer-wallet-inmemory' } );

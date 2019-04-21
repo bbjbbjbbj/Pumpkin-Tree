@@ -419,3 +419,46 @@ app.post('/api/userEarnPoints', function(req, res) {
 
 }});
 });
+
+
+app.post('/api/create', function(req, res) {
+  var name = req.body.name;
+	var idnum = req.body.idnum;
+	var email = req.body.email;
+	var year = req.body.year;
+	var company = req.body.company;
+	var quota = req.body.quota;
+	var remark = req.body.remark;
+	
+
+	var fee = parseInt(quota) * 0.15;
+  console.log(name, idnum, email, year, company, quota, remark);
+  // send message to chain-server before response.
+  // createUser(name, idnum);
+  // createInsurance(idnum, company, quota, )
+	res.send(JSON.stringify({
+    "name":name,
+    "idnum":idnum,
+    "email":email,
+    "year":year,
+    "company":company,
+    "quota":quota,
+    "fee":fee
+  }));
+
+});
+
+app.get('/api/inquire', function(req, res) {
+  var insurance_id = req.body.insurance_id;
+  var name, user_id, company_id, year, quota, remark
+  // find the correct message from chain-server
+	res.send(JSON.stringify({
+    "name":name||"BBJ",
+    "user_id":user_id||"131102xxxxxxxxxx36",
+    "company_id":company_id||1,
+    "year":year||5,
+    "quota":quota||"10,000",
+    "remark":remark||"Nothing"
+  }));
+
+});
