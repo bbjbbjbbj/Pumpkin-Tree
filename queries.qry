@@ -1,0 +1,141 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+query selectMembersH {
+  description: "Select HIGH members"
+  statement:
+      SELECT org.pikachu2.biznet.Member
+      WHERE(credit>67)
+}
+query selectMembersMH {
+  description: "Select MEDIUM and HIGH members"
+  statement:
+      SELECT org.pikachu2.biznet.Member
+      WHERE(credit>33)
+}
+query selectMembersL {
+  description: "Select MEDIUM members"
+  statement:
+      SELECT org.pikachu2.biznet.Member
+      WHERE(credit<=33)
+}
+query selectCompanysH {
+  description: "Select HIGH Companys"
+  statement:
+      SELECT org.pikachu2.biznet.Company
+      WHERE(credit>67)
+}
+query selectCompanysMH {
+  description: "Select MH Companys"
+  statement:
+      SELECT org.pikachu2.biznet.Company
+      WHERE(credit>33)
+}
+query selectCompanysL {
+  description: "Select L Companys"
+  statement:
+      SELECT org.pikachu2.biznet.Company
+      WHERE(credit<=33)
+}
+query selectMembersById{
+  description: "Select members by Id"
+  statement:
+      SELECT org.pikachu2.biznet.Member
+  		WHERE (accountNumber==_$accountNumber)
+}
+query selectCompanys {
+  description: "Select all companys"
+  statement:
+      SELECT org.pikachu2.biznet.Company
+}
+
+
+query selectUserEarnPoints {
+  description: "Select all points earned transactions"
+  statement:
+      SELECT org.pikachu2.biznet.userEarnPoints	
+}
+
+query selectUserUsePoints {
+  description: "Select all points lose transactions"
+  statement:
+      SELECT org.pikachu2.biznet.userUsePoints
+}
+
+
+query selectCompanyEarnPoints {
+  description: "Select all points earned transactions"
+  statement:
+      SELECT org.pikachu2.biznet.companyEarnPoints
+}
+
+query selectCompanyLosePoints {
+  description: "Select all points lose transactions"
+  statement:
+      SELECT org.pikachu2.biznet.companyUsePoints
+}
+
+
+query selectUserEarnCredit {
+  description: "Select all credit earned transactions"
+  statement:
+      SELECT org.pikachu2.biznet.userEarnCredit
+}
+
+query selectUserLoseCredit {
+  description: "Select all credit lose transactions"
+  statement:
+      SELECT org.pikachu2.biznet.userLoseCredit
+}
+
+
+query selectCompanyEarnCredit {
+  description: "Select all credit earned transactions"
+  statement:
+      SELECT org.pikachu2.biznet.companyEarnCredit
+}
+
+query selectCompanyLoseCredit {
+  description: "Select all credit lose transactions"
+  statement:
+      SELECT org.pikachu2.biznet.companyLoseCredit
+}
+
+query selectPointsWithExistedMemberid{
+	description:"Select member points if id exist"
+	statement:
+		SELECT org.pikachu2.biznet.Member
+		WHERE	(accountNumber==_$accountNumber)
+}
+
+query selectCreditWithExistedMemberid{
+	description:"Select member Credit if id exist"
+	statement:
+  		SELECT org.pikachu2.biznet.Member
+        WHERE	(accountNumber==_$accountNumber)
+}
+
+
+query selectPointsWithExistedCompanyid{
+	description:"Select Company points if id exist"
+	statement:
+		SELECT org.pikachu2.biznet.Company
+		WHERE	(id==_$id)
+}
+query selectCreditWithExistedCompanyid{
+	description:"Select Company Credit if id exist"
+	statement:
+		SELECT org.pikachu2.biznet.Company
+		WHERE	(id==_$id)
+}

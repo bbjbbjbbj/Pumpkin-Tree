@@ -1,39 +1,16 @@
 {
-  "engines": {
-    "composer": "^0.20.2"
+  "name": "pika",
+  "version": "1.0.0",
+  "description": "A customer loyalty program allows companies to reward customers who frequently make purchases. Program members are able to earn points on purchases, which can translate into some type of reward such as discount, freebie or special customer treatment.  The members work toward a certain amount of points to redeem their reward.  These programs can have multiple companies as partners on the program, to cater to a customer base.  However, current loyalty program systems are restraint on relations between partners, and with visibility to members. These restraints can be removed by creating the customer loyalty program on a blockchain network.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
   },
-  "name": "pika-network",
-  "version": "0.0.1",
-  "description": "pikachu network version1",
   "scripts": {
-    "prepublish": "composer archive create -t dir -n .",
-    "pretest": "npm run lint",
-    "lint": "eslint .",
-    "test": "nyc mocha -t 0 test/*.js && cucumber-js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "composer",
-    "composer-network"
-  ],
-  "author": "Ma Runxin",
-  "email": "2824814463@qq.com",
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "composer-admin": "^0.20.2",
-    "composer-cli": "^0.20.2",
-    "composer-client": "^0.20.2",
-    "composer-common": "^0.20.2",
-    "composer-connector-embedded": "^0.20.2",
-    "composer-cucumber-steps": "^0.20.2",
-    "chai": "latest",
-    "chai-as-promised": "latest",
-    "cucumber": "^2.2.0",
-    "eslint": "latest",
-    "nyc": "latest",
-    "mkdirp": "latest",
-    "mocha": "latest"
-  },
-  "dependencies": {
-    "jshint": "^2.10.2"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
